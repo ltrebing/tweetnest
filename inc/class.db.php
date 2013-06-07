@@ -15,7 +15,7 @@
 		public function __construct($type, $config){
 			if(in_array(strtolower(trim($type)), array("mysql" /* more to be added later */))){
 				$this->type = strtolower(trim($type));
-				if(!empty($config['hostname']) && !empty($config['username']) && !empty($config['password']) && !empty($config['database'])){
+				if(!empty($config['hostname']) && !empty($config['username']) && !empty($config['database'])){
 					$this->config = $config;
 					$this->connect();
 				} else {
@@ -31,12 +31,6 @@
 				case "mysql":
 					// Check for MySQLi
 					$this->mysqli = extension_loaded("mysqli");
-					if(!$this->mysqli){
-					    $prefix = (PHP_SHLIB_SUFFIX === "dll") ? "php_" : "";
-					    if(@dl($prefix . "mysqli." . PHP_SHLIB_SUFFIX)){
-					        $this->mysqli = extension_loaded("mysqli");
-					    }
-					}
 					try {
 						$this->on   = true;
 						$this->res  = $this->mysqli ?
@@ -115,7 +109,7 @@
 		}
 		
 		private function _getMySQLVersion($versionstring){
-			if(preg_match("/^mysqlnd ([0-9\.]+)/", $cv, $matches)){
+			if(preg_match("/^mysqlnd ([0-9\.]+)/", $versionstring, $matches)){
 				return $matches[1];
 			}
 			return $versionstring;
