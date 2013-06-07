@@ -1,4 +1,5 @@
 RewriteEngine On
+RewriteRule .*\.git/.* - [F]
 RewriteRule ^sort/?$ ./sort.php [L]
 RewriteRule ^favorites/?$ ./favorites.php [L]
 RewriteRule ^search/?$ ./search.php [L]
