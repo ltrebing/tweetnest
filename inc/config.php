@@ -115,4 +115,7 @@
 		// profile_sidebar_border_color
 		// .. or any one of the other variable names seen above
 	);
+	
+	include_once(dirname(__FILE__) . '/config-local.php');
+	
 	global $config;
