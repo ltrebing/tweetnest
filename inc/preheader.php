@@ -8,7 +8,7 @@
 	mb_language("uni");
 	mb_internal_encoding("UTF-8");
 	
-	define("TWEET_NEST", "0.8"); // Version number
+	define("TWEET_NEST", "0.8.1"); // Version number
 	
 	require "config.php";
 	if(empty($config['twitter_screenname'])){ header("Location: ./setup.php"); exit; }
@@ -16,7 +16,7 @@
 	define("DTP", $config['db']['table_prefix']);
 	
 	// Get the full path
-	$fPath = explode("/", rtrim(__FILE__, "/"));
+	$fPath = explode(DIRECTORY_SEPARATOR, rtrim(__FILE__, DIRECTORY_SEPARATOR));
 	array_pop($fPath); array_pop($fPath); // Remove inc/preheader.php
 	$fPath = implode($fPath, "/");
 	define("FULL_PATH", $fPath);
@@ -74,7 +74,7 @@
 	// Check for cURL
 	if(!extension_loaded("curl")){
 	    $prefix = (PHP_SHLIB_SUFFIX === "dll") ? "php_" : "";
-	    if(!@dl($prefix . "curl." . PHP_SHLIB_SUFFIX)){
+	    if(!function_exists("dl") || !@dl($prefix . "curl." . PHP_SHLIB_SUFFIX)){
 	        trigger_error("Unable to load the PHP cURL extension.", E_USER_ERROR);
 	        exit;
 	    }
