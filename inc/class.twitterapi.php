@@ -3,7 +3,7 @@
 	// Twitter API class
 	// (a simple one)
 	
-	require_once "twitteroauth/twitteroauth.php";
+	require_once "twitteroauth/twitteroauth/twitteroauth.php";
 	require_once "twitteroauth/config.php";
 
 	class TwitterApi {
