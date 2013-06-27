@@ -7,7 +7,7 @@
 	require "mheader.php";
 	
 	echo l("Connecting & parsing...\n");
-	$path = "1/users/show.json?screen_name=" . $config['twitter_screenname'];
+	$path = "account/verify_credentials";
 	echo l("Connecting to: <span class=\"address\">" . ls($path) . "</span>\n");
 	
 	$data = $twitterApi->query($path);
