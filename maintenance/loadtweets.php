@@ -96,6 +96,7 @@
 			// Determine path to Twitter timeline resource
 			$path =	"statuses/user_timeline.json?" . $p . // <-- user argument
 					"&include_rts=true&include_entities=true&count=" . $maxCount .
+					"&tweet_mode=extended" .
 					($sinceID ? "&since_id=" . $sinceID : "") . ($maxID ? "&max_id=" . $maxID : "");
 			// Announce
 			echo l("Retrieving page <strong>#" . $page . "</strong>: <span class=\"address\">" . ls($path) . "</span>\n");

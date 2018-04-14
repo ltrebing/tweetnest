@@ -13,6 +13,7 @@
 		public $dbMap = array(
 			"id_str"       => "tweetid",
 			"created_at"   => "time",
+			"full_text"    => "text",
 			"text"         => "text",
 			"source"       => "source",
 			"coordinates"  => "coordinates",
